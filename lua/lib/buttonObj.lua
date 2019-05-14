@@ -161,7 +161,7 @@ function buttonObj:processMouseEvent(x,y,mbS,mbF)
    self.dragX = 0
    self.dragY = 0
    self.dragFlag = false
-      io.write("clickbaited!\n")
+  --io.write("clickbaited!\n")
    if (self.OnClick ~= nil) then
    self.OnClick()
    end
@@ -196,6 +196,10 @@ end
 function buttonObj:setDragable(df)
 self.dragable = df
 end
+
+function buttonObj:getDragFlag()
+  return self.dragFlag
+  end
 
 function buttonObj:hide()
 end
