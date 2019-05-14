@@ -23,50 +23,58 @@ self.id = self.idGen()
 self.mode = 0 -- 0 - kanji, !0 - translation
 self.kanji = nil
 self.kanji = buttonClass(self.idGen,self.x,self.y,self.w,self.h)
+self.kanji:setDragable(false)
+--add customization
+self.kanji:loadImg("./img/ac.png");
+self.kanji:loadHImg("./img/black.png");
 --self.translation = nil
 self.kanjiTxt = nil
 self.translationTxt = nil
 self.answer = {}
+self.hidden= false
 return self
 end
 
 function kanjiObj:setKanji(txt)
-    if (self.kanji ~= nil) then
-    self.kanji = nil    
-  end
+ --   if (self.kanji ~= nil) then
+ --   self.kanji = nil    
+ -- end
   self.kanjiTxt = txt
   --self.kanji = labelClass("./ttf/GenShinGothic-Monospace-Normal.ttf",self.kanjiTxt,self.x,self.y,255,255,255,16,self.idGen())
   --self.kanji:hide()
 end
 
 function kanjiObj:setTranslation(txt)
-  if (self.translation ~= nil) then
-    self.translation = nil
-  end
+ -- if (self.translation ~= nil) then
+ --   self.translation = nil
+ -- end
   self.translationTxt = txt
   --self.translation = labelClass("./ttf/GenShinGothic-Monospace-Normal.ttf",self.translationTxt,self.x,self.y,255,255,255,16,self.idGen())
   --self.translation:hide()
   end
 
+--rework needed. customization of fontsize and color required
 function kanjiObj:setMode(m)
   self.mode = m
   if (self.mode == 0 ) then
     --self.translation:hide()
     --self.kanji:show()
-    self.kanji:setText(self.kanjiTxt)
+    self.kanji:setText("./ttf/GenShinGothic-Monospace-Normal.ttf",self.kanjiTxt,20,200,200,200)
   else
-    self.kanji:setText(self.translationTxt)
+    self.kanji:setText("./ttf/GenShinGothic-Monospace-Normal.ttf",self.translationTxt,20,200,200,200)
     --self.translation:show()
     --self.kanji:hide()
     end
   end
 
 function kanjiObj:hide()
+  self.hidden = true
   self.kanji:hide()
   --self.translation:hide()
   end
 
 function kanjiObj:show()
+  self.hidden = false
   if (self.mode == 0 ) then
     --self.translation:hide()
     self.kanji:show()
@@ -86,6 +94,12 @@ end
 
 function kanjiObj:getId()
   return self.id
+  end
+
+function kanjiObj:processMouseEvent(x,y,mbS,mbF)
+  if (self.hidden == false) then
+  self.kanji:processMouseEvent(x,y,mbS,mbF)
+  end
   end
 
 return kanjiObj

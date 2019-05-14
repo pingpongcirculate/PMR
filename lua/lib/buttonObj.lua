@@ -167,13 +167,20 @@ function buttonObj:processMouseEvent(x,y,mbS,mbF)
    end
    
    end
-   
+   if (self.himg ~= nil) then
 	self.himg:show();
+  end
+  if (self.img ~= nil) then
 	self.img:hide();
+  end
  else
  --process mouse out
+ if (self.img ~= nil) then
  	self.img:show();
+end
+if (self.himg ~= nil) then
 	self.himg:hide();
+  end
 	self.dragX = 0
     self.dragY = 0
     self.dragFlag = false
