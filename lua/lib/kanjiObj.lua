@@ -62,12 +62,18 @@ function kanjiObj:setMode(m)
   if (self.mode == 0 ) then
     --self.translation:hide()
     --self.kanji:show()
-    self.kanji:setText("./ttf/GenShinGothic-Monospace-Normal.ttf",self.kanjiTxt,20,200,200,200)
+    self.kanji:setText("./ttf/GenShinGothic-Monospace-Normal.ttf",self.kanjiTxt,24,200,200,200)
   else
-    self.kanji:setText("./ttf/GenShinGothic-Monospace-Normal.ttf",self.translationTxt,20,200,200,200)
+    self.kanji:setText("./ttf/GenShinGothic-Monospace-Normal.ttf",self.translationTxt,24,200,200,200)
     --self.translation:show()
     --self.kanji:hide()
     end
+  end
+
+function kanjiObj:setPos(X,Y)
+  self.kanji:setPos(X,Y)
+  self.x = X
+  self.y = Y
   end
 
 function kanjiObj:hide()
@@ -78,14 +84,8 @@ function kanjiObj:hide()
 
 function kanjiObj:show()
   self.hidden = false
-  if (self.mode == 0 ) then
-    --self.translation:hide()
-    self.kanji:show()
-  else
-   -- self.translation:show()
-    self.kanji:hide()
-    end
-  end
+  self.kanji:show()
+   end
 
 function kanjiObj:getKanji()
   return self.kanjiTxt
@@ -125,5 +125,9 @@ end
   end --if hidden check
   
   end --function
+
+function kanjiObj:destroy()
+  self.kanji:Destroy()
+  end
 
 return kanjiObj

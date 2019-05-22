@@ -18,7 +18,8 @@ function checkAnswer(Idx)
  io.write("ANSWERED INDEX ARE: "..Idx.."\n")
  if( QKanjiIdx == Idx) then
    io.write("A WINNER IS YOU!\n")
-   end
+    GenerateQuestion()
+ end
   end
 
 for i=1, #kanjiPair, 2 do
@@ -36,14 +37,40 @@ for i=1, #kanjiPair, 2 do
 --	b:setDragable(false);
 --	b:setText("./ttf/GenShinGothic-Monospace-Normal.ttf","何じゃこれは?!",24,200,200,200);
   
---index of question in common array  
+function GenerateQuestion()
+ --index of question in common array  
 QKanjiIdx = math.random(#kanjiArr)
+if (QKanji ~= nil) then
+QKanji:destroy()
+end
+QKanji = nil
 QKanji=kanjiClass(common.getObjIdx,60,60,200,40,QKanjiIdx)
 QKanji:setKanji(kanjiArr[QKanjiIdx]:getKanji())
 QKanji:setTranslation(kanjiArr[QKanjiIdx]:getTranslation())
 QKanji:setMode(0)
 
-  io.write("QKanjiIdx "..QKanjiIdx.." \n")
+local QkanjiAnswerIdx = math.random(3)
+local  tempAnswersArr = {}
+for i=1, #kanjiArr do
+  kanjiArr[i]:hide()
+end
+
+for i=1, 3 do
+  local RandomKanjiIdx = math.random(#kanjiArr)
+  while RandomKanjiIdx == QKanjiIdx do
+    RandomKanjiIdx = math.random(#kanjiArr)
+  end
+  if (i == QkanjiAnswerIdx ) then
+  tempAnswersArr[i] = kanjiArr[QKanjiIdx]  
+    else
+  tempAnswersArr[i] = kanjiArr[RandomKanjiIdx]
+end
+  tempAnswersArr[i]:setPos(100,150+50*i)
+  tempAnswersArr[i]:show()
+end
+  tempAnswersArr = nil
+end
+
 --ENGINE HOOKS
 function mouseHandler(x,y,mbS,mbF)
   for i=1, #kanjiArr do
@@ -51,3 +78,5 @@ function mouseHandler(x,y,mbS,mbF)
     end
 end
 --ENGINE HOOKS END
+
+GenerateQuestion()

@@ -89,8 +89,36 @@ end
 
 self.x = newX
 self.y = newY
-
 end
+
+function buttonObj:setPos(X,Y)
+local newX = X
+local newY = Y
+
+--io.write("deltaX: ",dX, "deltaY: ",dY," self.x ",self.x," self.y ",self.y,"\n")
+
+if (self.img ~= nil) then
+self.img:setPos(newX,newY)
+end
+
+if (self.himg ~= nil) then
+self.himg:setPos(newX,newY)
+end
+
+if (self.cimg ~= nil) then
+self.cimg:setPos(newX,newY)
+end
+
+if (self.txt ~= nil) then
+local textY = (self.h /2 - self.txt:getFontSize()/2) + newY
+local textX = self.txt:getFontSize()/2+newX
+self.txt:setPos(textX,textY)
+end
+
+self.x = newX
+self.y = newY
+  
+  end
 
 function buttonObj:loadImg(imgPath)
 self.img = imgClass(imgPath,self.x,self.y,self.w,self.h,self.idGen());
@@ -202,9 +230,29 @@ function buttonObj:getDragFlag()
   end
 
 function buttonObj:hide()
+if (self.img ~= nil) then
+ 	self.img:hide();
+end
+if (self.himg ~= nil) then
+	self.himg:hide();
+end
+if (self.txt ~= nil) then
+  self.txt:hide()
+  end
+
 end
 
 function buttonObj:show()
+ if (self.img ~= nil) then
+ 	self.img:show();
+end
+if (self.himg ~= nil) then
+	self.himg:show();
+end
+
+if (self.txt ~= nil) then
+  self.txt:show()
+  end
   end
 
 return buttonObj

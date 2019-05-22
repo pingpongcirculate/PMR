@@ -75,7 +75,7 @@ void Label::setHiden(bool hiden) {
 }
 
 bool Label::isHiden() const {
-    return hiden;
+    return this->hiden;
 }
 
 void Label::setText(std::string text) {
