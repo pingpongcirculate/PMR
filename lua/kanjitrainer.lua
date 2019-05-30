@@ -4,10 +4,13 @@ local labelClass = require("lua.lib.labelObj");
 local buttonClass = require("lua.lib.buttonObj");
 local kanjiClass = require("lua.lib.kanjiObj");
 common.init();
-math.randomseed(3)
+math.randomseed(os.time())
 
 local bg1 = imgClass("./img/black.png",0,0,800,600,common.getObjIdx())
-local kanjiPair = {"何","what","誰","who","犬","dog","猫","cat","鳥","bird","馬","horse"}
+local kanjiPair = 
+{"前","upfront","日","day","白","white",
+ "出","exit","三","three","一","one","父","father","生","sei from sensei","雨","rain",
+ "買","buy","何","what","誰","who","犬","dog","猫","cat","鳥","bird","馬","horse"}
 local kanjiArr = {}
 local QKanji = nil
 local QKanjiIdx = 0; -- index from answer array
