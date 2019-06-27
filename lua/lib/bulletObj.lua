@@ -10,14 +10,14 @@ setmetatable(bulletObj,{
 	end,
 })
 
-function bulletObj.new(x,y,w,h,angle,lifetime,spritePath,id)
+function bulletObj.new(x,y,w,h,angle,lifetime,speed,spritePath,id)
 local self = setmetatable({},bulletObj)
 self.x = x
 self.y = y
 self.w = w
 self.h = h
 self.id = id
-self.speed = 1;
+self.speed = speed;
 self.angle = angle;
 self.sprite = imgClass(spritePath,self.x,self.y,self.w,self.h,self.id);
 self.sprite:setAngle(self.angle);
