@@ -62,6 +62,26 @@ App::~App() {
 
 int App::AppInit() {
     
+     //LOAD Window size values from ini
+    CSimpleIniA ini;
+    SI_Error rc;
+    
+    this->windowH = SCREEN_WIDTH;
+    this->windowH = SCREEN_HEIGHT;
+    
+    FILE *fp = fopen(INIFILENAME,"a+"); //hack to avoid "no file exists" possibylity 
+    fclose(fp);
+    ini.SetUnicode(true);
+    rc = ini.LoadFile(INIFILENAME);
+    if (rc < 0) {
+    this->windowH = SCREEN_WIDTH;
+    this->windowH = SCREEN_HEIGHT;
+    DEBUG( "cant find initial parameters");
+    } else {
+     this->windowW = ini.GetLongValue("video","width",SCREEN_WIDTH);
+     this->windowH = ini.GetLongValue("video","height",SCREEN_HEIGHT);
+    }
+    
     //Initialize SDL 
     if( SDL_Init( SDL_INIT_EVERYTHING ) < 0 ) { 
         DEBUG( "SDL could not initialize! SDL_Error:");
@@ -77,7 +97,7 @@ int App::AppInit() {
         return RET_ERR; 
     }
     
-    this->window = SDL_CreateWindow( APP_TITLE, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+    this->window = SDL_CreateWindow( APP_TITLE, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, this->windowW, this->windowH, SDL_WINDOW_SHOWN );
     if (this->window == nullptr) {
         DEBUG("cant create main SDL window");
         return RET_ERR;
@@ -240,6 +260,22 @@ int App::LUA_SetLabelText(lua_State* L) {
             [&OBJID](Label *obj){ return obj->getID() == OBJID; });
             (*LabelObj)->setText(luaL_checkstring(L,2));
     return RET_OK;
+}
+
+void App::SetWindowW(int windowW) {
+    this->windowW = windowW;
+}
+
+int App::GetWindowW() const {
+    return windowW;
+}
+
+void App::SetWindowH(int windowH) {
+    this->windowH = windowH;
+}
+
+int App::GetWindowH() const {
+    return windowH;
 }
 
 

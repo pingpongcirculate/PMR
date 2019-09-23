@@ -11,7 +11,7 @@ local MAXVALUE = 4; -- maximum block variety
 local animationActive = false;
 
 common.init();
-local bg1 = imgClass("./img/black.png",0,0,800,600,common.getObjIdx());
+local bg1 = imgClass("./img/black.png",0,0,LUA_WindowW,LUA_WindowH,common.getObjIdx());
 
 local brick = {};
 local bMatrix = {}; --actual matrix with values

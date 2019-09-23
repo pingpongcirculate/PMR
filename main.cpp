@@ -123,6 +123,10 @@ void runLuaScript() {
     
     game.SetLuaState(luaL_newstate());
     luaL_openlibs(game.GetLuaState());
+    lua_pushinteger(game.GetLuaState(), game.GetWindowH());
+    lua_setglobal(game.GetLuaState(), "LUA_WindowH");
+    lua_pushinteger(game.GetLuaState(), game.GetWindowW());
+    lua_setglobal(game.GetLuaState(), "LUA_WindowW");
     //APP OBJECT
     lua_register(game.GetLuaState(),"LUA_APPQUIT",ENGINE_LUA_APPQUIT);
     lua_register(game.GetLuaState(),"LUA_APPRUNFILE",ENGINE_LUA_APPRUNFILE);

@@ -27,13 +27,14 @@ end
 
 function bulletObj:destroy()
  self.sprite:destroy();
+ self.sprite = nil
 end
 
 function bulletObj:move()
 --radians =  degrees * Pi / 180
 local radians = math.rad(self.angle);
-local sine = math.sin(radians); -- some precalculations
-local cosine = math.cos(radians);
+local sine = self.speed*math.sin(radians); -- some precalculations
+local cosine = self.speed*math.cos(radians);
 
  self.x = self.x + sine;
  self.y = self.y - cosine;

@@ -6,7 +6,7 @@ local buttonClass = require("lua.lib.buttonObj");
 
 io.write (" HELLO FROM LUA\n");
 common.init();
-local bg1 = imgClass("./img/black.png",0,0,800,600,common.getObjIdx());
+local bg1 = imgClass("./img/black.png",0,0,LUA_WindowW,LUA_WindowH,common.getObjIdx());
 --LUA_LoadImg("./img/3.png",0,0,400,100,255,3);
 --LUA_LoadImg("./img/3.png",0,0,480,600,255,1);
 --LUA_LoadImg("./img/4.png",120,120,680,400,255,2);

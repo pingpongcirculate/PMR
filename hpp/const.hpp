@@ -28,6 +28,8 @@ if (DEBUG_FLAG) { std::cerr << x << std::endl;} \
 #define RET_OK 0
 #define RET_ERR -1
 
+#define INIFILENAME "./pmr.ini"
+
 #define APP_TITLE "simple app"
 
 #define SCREEN_WIDTH 800 

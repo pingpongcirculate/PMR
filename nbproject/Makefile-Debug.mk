@@ -21,8 +21,8 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=MinGW-Windows
-CND_DLIB_EXT=dll
+CND_PLATFORM=GNU-Linux
+CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -35,10 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/b8f32e06/Img.o \
-	${OBJECTDIR}/_ext/b8f32e06/Label.o \
 	${OBJECTDIR}/cpp/App.o \
 	${OBJECTDIR}/cpp/Camera.o \
+	${OBJECTDIR}/cpp/Img.o \
+	${OBJECTDIR}/cpp/Label.o \
 	${OBJECTDIR}/cpp/Map.o \
 	${OBJECTDIR}/cpp/Npc.o \
 	${OBJECTDIR}/main.o
@@ -58,50 +58,50 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/C/lib -lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf -llua
+LDLIBSOPTIONS=-lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf -llua
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pmr.exe
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pmr
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pmr.exe: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pmr: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pmr ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/_ext/b8f32e06/Img.o: /C/temp/PMR/cpp/Img.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/b8f32e06
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -I/C/include -I/C/include/SDL2 -I/C/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/b8f32e06/Img.o /C/temp/PMR/cpp/Img.cpp
-
-${OBJECTDIR}/_ext/b8f32e06/Label.o: /C/temp/PMR/cpp/Label.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/b8f32e06
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -I/C/include -I/C/include/SDL2 -I/C/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/b8f32e06/Label.o /C/temp/PMR/cpp/Label.cpp
 
 ${OBJECTDIR}/cpp/App.o: cpp/App.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -I/C/include -I/C/include/SDL2 -I/C/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/App.o cpp/App.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/App.o cpp/App.cpp
 
 ${OBJECTDIR}/cpp/Camera.o: cpp/Camera.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -I/C/include -I/C/include/SDL2 -I/C/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Camera.o cpp/Camera.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Camera.o cpp/Camera.cpp
+
+${OBJECTDIR}/cpp/Img.o: cpp/Img.cpp
+	${MKDIR} -p ${OBJECTDIR}/cpp
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Img.o cpp/Img.cpp
+
+${OBJECTDIR}/cpp/Label.o: cpp/Label.cpp
+	${MKDIR} -p ${OBJECTDIR}/cpp
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Label.o cpp/Label.cpp
 
 ${OBJECTDIR}/cpp/Map.o: cpp/Map.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -I/C/include -I/C/include/SDL2 -I/C/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Map.o cpp/Map.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Map.o cpp/Map.cpp
 
 ${OBJECTDIR}/cpp/Npc.o: cpp/Npc.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -I/C/include -I/C/include/SDL2 -I/C/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Npc.o cpp/Npc.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Npc.o cpp/Npc.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -I/C/include -I/C/include/SDL2 -I/C/lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:

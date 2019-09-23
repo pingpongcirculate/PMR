@@ -6,7 +6,7 @@ local kanjiClass = require("lua.lib.kanjiObj");
 common.init();
 math.randomseed(os.time())
 
-local bg1 = imgClass("./img/black.png",0,0,800,600,common.getObjIdx())
+local bg1 = imgClass("./img/black.png",0,0,LUA_WindowW,LUA_WindowH,common.getObjIdx())
 local kanjiPair = 
 {"前","upfront","日","day","白","white",
  "出","exit","三","three","一","one","父","father","生","sei from sensei","雨","rain",

@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <vector>
 #include <unordered_map>
+#include "SimpleIni.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "SDL2/SDL_ttf.h"
@@ -47,6 +48,8 @@ public:
     void SetLuaScriptFileName(std::string luaScriptFileName);
     std::string GetLuaScriptFileName() const;
     void SetExecLuaFileFunc(void (*F)());
+    int windowH;
+    int windowW;
     //LUA BEGIN
     //IMG
     int LUA_LoadImg(lua_State* L);
@@ -68,6 +71,10 @@ public:
     int LUA_UnHideLabel(lua_State* L);
     int LUA_SetLabelPos(lua_State* L);
     int LUA_SetLabelText(lua_State* L);
+    void SetWindowW(int windowW);
+    int GetWindowW() const;
+    void SetWindowH(int windowH);
+    int GetWindowH() const;
     //LUA END
     
 private:

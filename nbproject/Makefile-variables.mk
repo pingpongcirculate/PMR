@@ -7,21 +7,21 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=MinGW-Windows
-CND_ARTIFACT_DIR_Debug=dist/Debug/MinGW-Windows
+CND_PLATFORM_Debug=GNU-Linux
+CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
 CND_ARTIFACT_NAME_Debug=pmr
-CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/pmr
-CND_PACKAGE_DIR_Debug=dist/Debug/MinGW-Windows/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/pmr
+CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
 CND_PACKAGE_NAME_Debug=pmr.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/pmr.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/pmr.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=sdlex01
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/sdlex01
+CND_ARTIFACT_NAME_Release=pmr
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/pmr
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=sdlex01.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/sdlex01.tar
+CND_PACKAGE_NAME_Release=pmr.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/pmr.tar
 #
 # include compiler specific variables
 #

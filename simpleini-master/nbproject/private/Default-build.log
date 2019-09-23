@@ -1,0 +1,2 @@
+This makefile is just for the test program (use "make clean all test")
+Just include the SimpleIni.h header file to use it.

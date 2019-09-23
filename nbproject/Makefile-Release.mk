@@ -37,6 +37,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/cpp/App.o \
 	${OBJECTDIR}/cpp/Camera.o \
+	${OBJECTDIR}/cpp/Img.o \
+	${OBJECTDIR}/cpp/Label.o \
 	${OBJECTDIR}/cpp/Map.o \
 	${OBJECTDIR}/cpp/Npc.o \
 	${OBJECTDIR}/main.o
@@ -60,11 +62,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sdlex01
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pmr
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sdlex01: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pmr: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/sdlex01 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pmr ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/cpp/App.o: cpp/App.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
@@ -75,6 +77,16 @@ ${OBJECTDIR}/cpp/Camera.o: cpp/Camera.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Camera.o cpp/Camera.cpp
+
+${OBJECTDIR}/cpp/Img.o: cpp/Img.cpp
+	${MKDIR} -p ${OBJECTDIR}/cpp
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Img.o cpp/Img.cpp
+
+${OBJECTDIR}/cpp/Label.o: cpp/Label.cpp
+	${MKDIR} -p ${OBJECTDIR}/cpp
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Label.o cpp/Label.cpp
 
 ${OBJECTDIR}/cpp/Map.o: cpp/Map.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp

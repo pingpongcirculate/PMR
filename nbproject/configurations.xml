@@ -6,10 +6,11 @@
                    projectFiles="true">
       <itemPath>hpp/App.hpp</itemPath>
       <itemPath>hpp/Camera.hpp</itemPath>
-      <itemPath>C:/temp/PMR/hpp/Img.hpp</itemPath>
-      <itemPath>C:/temp/PMR/hpp/Label.hpp</itemPath>
+      <itemPath>hpp/Img.hpp</itemPath>
+      <itemPath>hpp/Label.hpp</itemPath>
       <itemPath>hpp/Map.hpp</itemPath>
       <itemPath>hpp/Npc.hpp</itemPath>
+      <itemPath>simpleini-master/SimpleIni.h</itemPath>
       <itemPath>hpp/const.hpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -21,8 +22,8 @@
                    projectFiles="true">
       <itemPath>cpp/App.cpp</itemPath>
       <itemPath>cpp/Camera.cpp</itemPath>
-      <itemPath>C:/temp/PMR/cpp/Img.cpp</itemPath>
-      <itemPath>C:/temp/PMR/cpp/Label.cpp</itemPath>
+      <itemPath>cpp/Img.cpp</itemPath>
+      <itemPath>cpp/Label.cpp</itemPath>
       <itemPath>cpp/Map.cpp</itemPath>
       <itemPath>cpp/Npc.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -39,10 +40,6 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
-  <sourceRootList>
-    <Elem>C:\temp\PMR\hpp</Elem>
-    <Elem>C:\temp\PMR\cpp</Elem>
-  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -56,15 +53,10 @@
           <incDir>
             <pElem>hpp</pElem>
             <pElem>cpp</pElem>
-            <pElem>C:/include</pElem>
-            <pElem>C:/include/SDL2</pElem>
-            <pElem>C:/lib</pElem>
+            <pElem>simpleini-master</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
-          <linkerAddLib>
-            <pElem>C:/lib</pElem>
-          </linkerAddLib>
           <linkerLibItems>
             <linkerLibLibItem>SDL2</linkerLibLibItem>
             <linkerLibLibItem>SDL2main</linkerLibLibItem>
@@ -75,17 +67,13 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="C:/temp/PMR/cpp/Img.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="C:/temp/PMR/cpp/Label.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="C:/temp/PMR/hpp/Img.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="C:/temp/PMR/hpp/Label.hpp" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="cpp/App.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="cpp/Camera.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="cpp/Img.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="cpp/Label.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="cpp/Map.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -95,6 +83,10 @@
       </item>
       <item path="hpp/Camera.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="hpp/Img.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hpp/Label.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="hpp/Map.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="hpp/Npc.hpp" ex="false" tool="3" flavor2="0">
@@ -102,6 +94,8 @@
       <item path="hpp/const.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="simpleini-master/SimpleIni.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -124,17 +118,13 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="C:/temp/PMR/cpp/Img.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="C:/temp/PMR/cpp/Label.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="C:/temp/PMR/hpp/Img.hpp" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="C:/temp/PMR/hpp/Label.hpp" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="cpp/App.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="cpp/Camera.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="cpp/Img.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="cpp/Label.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="cpp/Map.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -144,6 +134,10 @@
       </item>
       <item path="hpp/Camera.hpp" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="hpp/Img.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hpp/Label.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="hpp/Map.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="hpp/Npc.hpp" ex="false" tool="3" flavor2="0">
@@ -151,6 +145,8 @@
       <item path="hpp/const.hpp" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="simpleini-master/SimpleIni.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
