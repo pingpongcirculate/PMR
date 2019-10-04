@@ -75,6 +75,7 @@ public:
     int GetWindowW() const;
     void SetWindowH(int windowH);
     int GetWindowH() const;
+    int (*LuaErrorHandlerFunc)();
     //LUA END
     
 private:

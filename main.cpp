@@ -113,6 +113,32 @@ int ENGINE_LUA_SetLabelText(lua_State *L) {
     return RET_OK;
 }
 
+int errorHandler(lua_State* L)
+{
+  //stack: err
+  const char* err = lua_tostring(L, 1);
+
+  printf("Error:%s\n", err);
+
+  lua_getglobal(L, "debug"); // stack: err debug
+  lua_getfield(L, -1, "traceback"); // stack: err debug debug.traceback
+
+  // debug.traceback() возвращает 1 значение
+  if(lua_pcall(L, 0, 1, 0))
+  {
+    const char* err = lua_tostring(L, -1);
+
+    printf("Error in debug.traceback() call: %s\n", err);
+  }
+  else
+  {
+    const char* stackTrace = lua_tostring(L, -1);
+
+    printf("C++ stack traceback: %s\n", stackTrace);
+  }
+
+  return 1;
+}
 
 void runLuaScript() {
     DEBUG("EXECUTIN FILE: "<<game.GetLuaScriptFileName());
@@ -127,6 +153,7 @@ void runLuaScript() {
     lua_setglobal(game.GetLuaState(), "LUA_WindowH");
     lua_pushinteger(game.GetLuaState(), game.GetWindowW());
     lua_setglobal(game.GetLuaState(), "LUA_WindowW");
+    game.LuaErrorHandlerFunc = errorHandler;
     //APP OBJECT
     lua_register(game.GetLuaState(),"LUA_APPQUIT",ENGINE_LUA_APPQUIT);
     lua_register(game.GetLuaState(),"LUA_APPRUNFILE",ENGINE_LUA_APPRUNFILE);

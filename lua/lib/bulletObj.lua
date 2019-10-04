@@ -36,9 +36,9 @@ local radians = math.rad(self.angle);
 local sine = self.speed*math.sin(radians); -- some precalculations
 local cosine = self.speed*math.cos(radians);
 
- self.x = self.x + sine;
- self.y = self.y - cosine;
- self.sprite:setPos(math.floor(self.x),math.floor(self.y));
+ self.x = math.floor(self.x + sine);
+ self.y = math.floor(self.y - cosine);
+ self.sprite:setPos(self.x,self.y);
  self.lifetime = self.lifetime -1;
 end
 

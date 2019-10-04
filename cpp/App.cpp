@@ -628,11 +628,12 @@ int App::AppRun() {
                     } //SDL_KEYDOWN
      } //SDL_PollEvent
       //provide background animation timer functional
+                    lua_pushcfunction(this->luaState, this->LuaErrorHandlerFunc); // stack: errorHandler
                     lua_getglobal(this->luaState,"LoopHandler");
                     if (lua_isfunction(this->luaState,lua_gettop(this->luaState))) {
                     // do the call (0 arguments, 1 result) 
-                    if (lua_pcall(this->luaState,0,1,0) != LUA_OK) {
-                    printf("error running function 'LoopHandler': %s\n",lua_tostring(this->luaState, -1));
+                    if (lua_pcall(this->luaState,0,1,-2) != LUA_OK) {
+                    printf("Engine: error running function 'LoopHandler': %s\n",lua_tostring(this->luaState, -1));
                     }
                     } else { lua_pop(this->luaState,lua_gettop(this->luaState));   }
                     
