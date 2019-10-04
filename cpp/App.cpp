@@ -16,6 +16,7 @@
 
 
 #include "App.hpp"
+#include "lua.hpp"
 
 App::App() {
     DEBUG("contructor called");
