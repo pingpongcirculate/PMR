@@ -71,37 +71,37 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pmr: ${OBJECTFILES}
 ${OBJECTDIR}/cpp/App.o: cpp/App.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/App.o cpp/App.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/App.o cpp/App.cpp
 
 ${OBJECTDIR}/cpp/Camera.o: cpp/Camera.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Camera.o cpp/Camera.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Camera.o cpp/Camera.cpp
 
 ${OBJECTDIR}/cpp/Img.o: cpp/Img.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Img.o cpp/Img.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Img.o cpp/Img.cpp
 
 ${OBJECTDIR}/cpp/Label.o: cpp/Label.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Label.o cpp/Label.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Label.o cpp/Label.cpp
 
 ${OBJECTDIR}/cpp/Map.o: cpp/Map.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Map.o cpp/Map.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Map.o cpp/Map.cpp
 
 ${OBJECTDIR}/cpp/Npc.o: cpp/Npc.cpp
 	${MKDIR} -p ${OBJECTDIR}/cpp
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Npc.o cpp/Npc.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cpp/Npc.o cpp/Npc.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -Ihpp -Icpp -Isimpleini-master -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:

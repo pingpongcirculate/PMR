@@ -50,6 +50,7 @@
       </toolsSet>
       <compileType>
         <ccTool>
+          <standard>8</standard>
           <incDir>
             <pElem>hpp</pElem>
             <pElem>cpp</pElem>
