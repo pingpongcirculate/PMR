@@ -85,10 +85,7 @@ function processBullets(BulletsArray)
 	  Bulet_value:destroy();
 	  Bulet_value = nil;
 	  bullets[Bulet_index] = nil;
-	  if (not pcall(table.remove(),BulletsArray,Bulet_index)) then
-      io.write("Index: "..tostring(Bulet_index).."\n")
-      debug.traceback()
-      end
+	  table.remove(BulletsArray,Bulet_index)
 		end 
 	end -- for
  bulletprocessMutex = 0
