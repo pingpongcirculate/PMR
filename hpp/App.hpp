@@ -14,6 +14,7 @@
 #ifndef APP_HPP
 #define APP_HPP
 
+#include <cmath>
 #include <iostream>
 #include <cassert>
 #include <algorithm>
