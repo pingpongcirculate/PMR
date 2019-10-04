@@ -24,9 +24,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include "SDL2/SDL_ttf.h"
-#include <lua.h>
-#include <lualib.h>
-#include <lauxlib.h>
+#include "lua.hpp"
 #include "const.hpp"
 #include "Camera.hpp"
 #include "Map.hpp"
