@@ -55,11 +55,11 @@ function ProcessCollisions()
       if ( npcX < X and npcXW > X and npcY < Y and npcYH > Y ) then
     bulletprocessMutex = 1
     value:destroy();
-	  value = nil;
-	  bullets[index] = nil;
+	  --value = nil;
+	  --bullets[index] = nil;
 	  table.remove(bullets,index);
     npcValue:destroy()
-    npcValue = nil
+    --npcValue = nil
     table.remove(npc,npcIndex)
     bulletprocessMutex = 0
     io.write("npcX: "..tostring(npcX).." X: "..tostring(X).." npcXW: "..tostring(npcXW).." npcY: "..tostring(npcY).." Y:"..tostring(Y).." npcH: "..tostring(npcYH).."\n")
@@ -79,17 +79,14 @@ function processBullets(BulletsArray)
  local Bulet_index = 0;
  local Bulet_value = nil;
  bulletprocessMutex = 1
- for Bulet_index, Bulet_value in ipairs(BulletsArray) do
+  for Bulet_index, Bulet_value in ipairs(BulletsArray) do
 	Bulet_value:move()
 	if (Bulet_value:getLifeTime() <=0 or Bulet_value:getX() < 0 or Bulet_value:getY() < 0 ) then
-	  Bulet_value:destroy();
-	  Bulet_value = nil;
-	  bullets[Bulet_index] = nil;
-	  table.remove(BulletsArray,Bulet_index)
+	 Bulet_value:destroy()
+   table.remove(BulletsArray,Bulet_index)
 		end 
 	end -- for
  bulletprocessMutex = 0
-collectgarbage();	
 end
 
 --main event loop goes here
@@ -109,7 +106,8 @@ function LoopHandler()
       npcValue:processLoop()
     end --npc
     processBullets(bullets)
-    ProcessCollisions()   
+    ProcessCollisions()
+    collectgarbage()
 end
 --ENGINE HOOKS END
 

@@ -632,7 +632,9 @@ int App::AppRun() {
                     lua_pushcfunction(this->luaState, this->LuaErrorHandlerFunc); // stack: errorHandler
                     lua_getglobal(this->luaState,"LoopHandler");
                     if (lua_isfunction(this->luaState,lua_gettop(this->luaState))) {
-                    // do the call (0 arguments, 1 result) 
+                    // do the call (0 arguments, 1 result)
+                    // some weird lua stack magic. can be problmatic. must be refactored to more precisely determine 
+                    // error handling function stack position
                     if (lua_pcall(this->luaState,0,1,-2) != LUA_OK) {
                     printf("Engine: error running function 'LoopHandler': %s\n",lua_tostring(this->luaState, -1));
                     }
