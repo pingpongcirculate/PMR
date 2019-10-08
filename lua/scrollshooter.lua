@@ -19,13 +19,10 @@ local bg1 = imgClass("./img/black.png",0,0,LUA_WindowW,LUA_WindowH,common.getObj
 local pl = spClass(200,470,96,96,0,"img/ship.png",common.getObjIdx,dbgArr)
 local npc = {}
 local npcAI = {
+  {2,0.5},{7,180},{9,50},{51,64,2},{5,-3},
   {2,0},{9,20},{7,180},{2,3},{0,0},{9,20},{50,LUA_WindowH-100,3},{51,20,6},{5,-4},
   {2,0},{75,5},{54,360,-8},{5,-2},
   {2,0},{75,5},{54,540,-13},{5,-2}}
-npc[1] = spClass(300,0,64,64,0,"img/ship.png",common.getObjIdx,dbgArr)
-npc[1]:setAngle(180)
-npc[2] = spClass(500,0,64,64,0,"img/ship.png",common.getObjIdx,dbgArr)
-npc[2]:setAngle(180)
 local bullets = {}
 --local bullet = bulletClass(200,470,12,12,350,"img/ship.png",common.getObjIdx());
 
@@ -72,7 +69,14 @@ function ProcessCollisions()
 end
 
 function generateNpcWave()
-  
+  if (#npc == 0) then
+    npc = nil
+    npc = {}
+    table.insert(npc,spClass(300,-70,64,64,0,"img/ship.png",common.getObjIdx,dbgArr))
+    npc[1]:setAngle(180)
+    table.insert(npc,spClass(500,-70,64,64,0,"img/ship.png",common.getObjIdx,dbgArr))
+    npc[2]:setAngle(180)
+    end
   end
 
 function processBullets(BulletsArray)
@@ -107,6 +111,7 @@ function LoopHandler()
     end --npc
     processBullets(bullets)
     ProcessCollisions()
+    generateNpcWave()
     collectgarbage()
 end
 --ENGINE HOOKS END
