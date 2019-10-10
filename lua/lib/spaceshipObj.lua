@@ -192,9 +192,9 @@ function spaceshipObj:fire(angle,bulletArray)
   local radians = math.rad(self.angle);
   local cosine = math.cos(radians);
   if (cosine < 0) then
-  table.insert(bulletArray, bulletClass(math.floor(self.x+self.w/2),math.floor(self.y+self.h+1),12,12,angle,600,self.speed+4,"img/ship.png",self.idGen()))
+  table.insert(bulletArray, bulletClass(math.floor(self.x+self.w/2),math.floor(self.y+self.h+self.speed + 1),12,12,angle,600,self.speed+4,"img/ship.png",self.idGen()))
 else
-  table.insert(bulletArray, bulletClass(math.floor(self.x+self.w/2),math.floor(self.y - 1),12,12,angle,600,self.speed+4,"img/ship.png",self.idGen()))
+  table.insert(bulletArray, bulletClass(math.floor(self.x+self.w/2),math.floor(self.y - (self.speed + 1 )),12,12,angle,600,self.speed+4,"img/ship.png",self.idGen()))
   end
   end
 
