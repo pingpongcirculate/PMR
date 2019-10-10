@@ -16,6 +16,7 @@ dbgArr[2] = debugL2
 
 
 local bg1 = imgClass("./img/black.png",0,0,LUA_WindowW,LUA_WindowH,common.getObjIdx())
+local bg2 = imgClass("./img/black.png",0,-LUA_WindowH,LUA_WindowW,LUA_WindowH,common.getObjIdx())
 local pl = spClass(200,470,96,96,0,"img/ship.png",common.getObjIdx,dbgArr)
 local npc = {}
 local npcAI = {
@@ -68,6 +69,19 @@ function ProcessCollisions()
   
 end
 
+function scrollBackground()
+  if (bg1:getY() > LUA_WindowH) then
+    bg1:setPos(bg1:getX(),-LUA_WindowH)
+  else
+    bg1:setPos(bg1:getX(),bg1:getY()+1)
+  end
+  if (bg2:getY() > LUA_WindowH) then
+    bg2:setPos(bg2:getX(),-LUA_WindowH)
+  else
+    bg2:setPos(bg2:getX(),bg2:getY()+1)
+  end
+  end
+
 function generateNpcWave()
   if (#npc == 0) then
     npc = nil
@@ -112,6 +126,7 @@ function LoopHandler()
     processBullets(bullets)
     ProcessCollisions()
     generateNpcWave()
+    scrollBackground()
     collectgarbage()
 end
 --ENGINE HOOKS END
