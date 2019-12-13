@@ -5,7 +5,7 @@ local spClass = require("lua.lib.spaceshipObj");
 local labelClass = require("lua.lib.labelObj");
 local bulletClass = require("lua.lib.bulletObj");
 local bulletprocessMutex = 0; -- 0 - bullets array unlocked - 1 - bullets array locked
-
+local npcWaveCounter=1
 common.init();
 
 local debugL1 = labelClass("./ttf/iosevkacc-regular.ttf","Debug Line 1",32,32,200,200,200,16,common.getObjIdx());
@@ -19,9 +19,12 @@ local bg1 = imgClass("./img/black.png",0,0,LUA_WindowW,LUA_WindowH,common.getObj
 local bg2 = imgClass("./img/black.png",0,-LUA_WindowH,LUA_WindowW,LUA_WindowH,common.getObjIdx())
 local pl = spClass(200,470,96,96,0,"img/ship.png",common.getObjIdx,dbgArr)
 local npc = {}
+local npcwavePlacements = {
+  {{(LUA_WindowW/4)+(LUA_WindowW/4)/3,-70,180},{(LUA_WindowW/4)*2+(LUA_WindowW/4)/3,-70,180},{(LUA_WindowW/4)*3+(LUA_WindowW/4)/3,-70,180}}
+  }
 local npcAI = {
-  {2,0.5},{7,180},{9,50},{51,64,2},{5,-3},
-  {2,0},{9,20},{7,180},{2,3},{0,0},{9,20},{50,LUA_WindowH-100,3},{51,20,6},{5,-4},
+  {2,0.5},{7,180},{9,100},{51,64,2},{5,-3},
+  {2,0},{9,20},{7,180},{2,3},{0,0},{9,20},{50,LUA_WindowH-100,3},{51,64,6},{5,-4},
   {2,0},{75,5},{54,360,-8},{5,-2},
   {2,0},{75,5},{54,540,-13},{5,-2}}
 local bullets = {}
@@ -86,10 +89,11 @@ function generateNpcWave()
   if (#npc == 0) then
     npc = nil
     npc = {}
-    table.insert(npc,spClass(300,-70,64,64,0,"img/ship.png",common.getObjIdx,dbgArr))
-    npc[1]:setAngle(180)
-    table.insert(npc,spClass(500,-70,64,64,0,"img/ship.png",common.getObjIdx,dbgArr))
-    npc[2]:setAngle(180)
+    for npcCoordsIndex, npcCoordsValue in ipairs(npcwavePlacements[npcWaveCounter]) do
+    io.write("X: "..tostring(npcCoordsValue[1]).." Y: "..tostring(npcCoordsValue[2]).." ANGLE: "..tostring(npcCoordsValue[3]))
+    table.insert(npc,spClass(math.floor(npcCoordsValue[1]),math.floor(npcCoordsValue[2]),64,64,0,"img/ship.png",common.getObjIdx,dbgArr))
+    npc[#npc]:setAngle(npcCoordsValue[3])
+   end
     end
   end
 
@@ -132,5 +136,5 @@ end
 --ENGINE HOOKS END
 
 pl:setAngle(0)
---pl:setSpeed(0)
+pl:setSpeed(4)
 --radians =  degrees * Pi / 180
